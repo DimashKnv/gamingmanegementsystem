@@ -1,0 +1,70 @@
+$red: #a62122;
+$black: #0c0b0b;
+$gray: #222121;
+$white: #ffffff;
+$graytxt: #807575;
+
+body {
+  margin: 0;
+}
+
+.loginPage {
+  display: flex;
+  background: $black;
+  color: $white;
+  justify-content: space-between;
+
+  .loginSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5em;
+
+    border: solid 2px $red;
+    border-radius: 3%;
+    height: 99.5vh;
+    width: 20vw;
+    margin: 0;
+    // padding:3em;
+  }
+
+  img {
+    height: 100vh;
+    width: 80vw;
+  }
+}
+
+.accLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2.5em;
+  width: 100%;
+  height: 60%;
+}
+
+input {
+  background: $black;
+  border: none;
+  border-bottom: solid 1px $white;
+  width: 60%;
+}
+.changeLogBtn {
+  color: $graytxt;
+  background: $black;
+  border: none;
+  margin-top: 15em;
+}
+
+.enterBtn {
+  width: 50%;
+  height: 2.5em;
+  background: $red;
+  border: none;
+  border-radius: 4px;
+  // height: ;
+  transition: all 0.3s;
+}
+.enterBtn:hover {
+  background-color: #b04e4e;
+}
