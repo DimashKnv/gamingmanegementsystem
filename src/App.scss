@@ -48,12 +48,13 @@ input {
   border: none;
   border-bottom: solid 1px $white;
   width: 60%;
+  color: $white;
 }
 .changeLogBtn {
   color: $graytxt;
   background: $black;
   border: none;
-  margin-top: 15em;
+  // margin-top: 15em;
 }
 
 .enterBtn {

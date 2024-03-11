@@ -2,13 +2,14 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { LoginAcc } from './pages/Login';
+import { RegistrAcc } from './pages/Registr';
 
 function App() {
   return (
     <div>
-      <LoginAcc></LoginAcc>
       <Routes>
-    {/* <Route path='/' element={}></Route> */}
+        <Route path='/' element={<RegistrAcc></RegistrAcc>}></Route>
+        <Route path='/Login' element={<LoginAcc></LoginAcc>}></Route>
       </Routes>
     </div>
   );
