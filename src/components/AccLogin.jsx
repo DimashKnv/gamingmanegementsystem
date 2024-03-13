@@ -9,8 +9,13 @@ export function AccLogin(props) {
   const navigate = useNavigate();
 
   async function handleLogin(){
-    const loginResult= await signInWithEmailAndPassword(auth,login,password)
-    console.log(loginResult)
+    try{
+      await signInWithEmailAndPassword(auth,login,password)
+      navigate("/main")
+    } catch(error){
+      alert(error)
+    }
+   
   }
 
   return (

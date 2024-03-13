@@ -6,6 +6,7 @@ $graytxt: #807575;
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 .loginPage {
@@ -68,4 +69,66 @@ input {
 }
 .enterBtn:hover {
   background-color: #b04e4e;
+}
+
+.mainPage {
+  background-color: $black;
+  color: $white;
+  position: relative;
+
+  display: flex;
+
+  .leftside {
+   background-color: $black;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 75vw;
+    height: 100vh;
+    
+
+    .tarif{
+      background-color: $gray;
+      display: flex;
+      flex-direction: column;
+      
+      justify-content: center;
+      align-items: center;
+      border-radius:20px;
+      width: 60vw;
+      margin-left: 7vw;
+      margin-top: 5vh;
+
+      .tarifPiece{
+        display: flex;
+        flex-direction: row;
+        column-gap: 5vw;
+        justify-content: space-between;
+        align-items: center;
+        width: 35%;
+
+        button{
+          background-color: $graytxt;
+          border-radius:20px;
+          width:8vw;
+          height: 4vh;
+        }
+      }
+    }
+    .ads{
+      background-color: crimson;
+      width: 60vw;
+      height: 20vh;
+      margin-left: 7vw;
+    }
+  }
+
+  .rightside {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    height: 100vh;
+    width: 20vw;
+    background-color: crimson;
+  }
 }

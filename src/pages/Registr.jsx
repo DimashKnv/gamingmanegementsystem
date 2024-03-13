@@ -13,20 +13,26 @@ export function RegistrAcc() {
   let [password, setPassword] = useState("");
 
   async function handleRegistration() {
-    const loginResult = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-await updateProfile(loginResult.user,{displayName:login})
-    console.log(loginResult)
-  }
+
+    try{
+      const loginResult = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+  await updateProfile(loginResult.user,{displayName:login})
+      navigate("/main")
+    }
+    catch(error){
+      alert(error)
+    }}
+    
 
 
   return (
     <div className="loginPage">
       <div className="loginSide">
-        <h1>Registrate</h1>
+        <h1>Registration</h1>
         <div className="accLogin">
           <input
             onChange={(e) => {
@@ -53,6 +59,7 @@ await updateProfile(loginResult.user,{displayName:login})
             onClick={() => {
               console.log(login, password);
               handleRegistration();
+              
             }}
           >
             Create Account
@@ -70,4 +77,4 @@ await updateProfile(loginResult.user,{displayName:login})
       <img src={LoginPng} alt="" />
     </div>
   );
-}
+          }
