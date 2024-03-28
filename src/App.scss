@@ -4,9 +4,11 @@ $gray: #222121;
 $white: #ffffff;
 $graytxt: #807575;
 
-body {
+
+* {
   margin: 0;
   padding: 0;
+  font-family: "Nunito", sans-serif;
 }
 
 .loginPage {
@@ -79,27 +81,26 @@ input {
   display: flex;
 
   .leftside {
-   background-color: $black;
+    background-color: $black;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     width: 75vw;
     height: 100vh;
-    
 
-    .tarif{
+    .tarif {
       background-color: $gray;
       display: flex;
       flex-direction: column;
-      
+
       justify-content: center;
       align-items: center;
-      border-radius:20px;
+      border-radius: 20px;
       width: 60vw;
       margin-left: 7vw;
       margin-top: 5vh;
 
-      .tarifPiece{
+      .tarifPiece {
         display: flex;
         flex-direction: row;
         column-gap: 5vw;
@@ -107,15 +108,15 @@ input {
         align-items: center;
         width: 35%;
 
-        button{
+        button {
           background-color: $graytxt;
-          border-radius:20px;
-          width:8vw;
+          border-radius: 20px;
+          width: 8vw;
           height: 4vh;
         }
       }
     }
-    .ads{
+    .ads {
       background-color: crimson;
       width: 60vw;
       height: 20vh;
@@ -123,12 +124,110 @@ input {
     }
   }
 
+  //main
+
   .rightside {
+    display: flex;
+    flex-direction: column;
+   
+    align-items: center;
+
     position: absolute;
     right: 0%;
     top: 0%;
     height: 100vh;
     width: 20vw;
-    background-color: crimson;
+    background-color: $gray;
+
+    p{
+      color:$graytxt
+    }
+
+    .userInfo {
+      width: 100%;
+      height: 18%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: 0.5em;
+      h3{
+        display: inline-block;
+        border: solid 0.1em $red;
+        padding: 0.2em;
+      }
+    }
+
+    .timeInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 25%;
+      width: 100%;
+      border-bottom: solid 0.05em;
+      border-top: solid 0.05em;
+      border-color: $white;
+    }
+    .timeInfoRow {
+      display: flex;
+      font-size: 1em;
+      width: 100%;
+
+      .timeInfoRowPiece {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+      }
+    }
+
+    .discountInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 20%;
+      width: 100%;
+      border-bottom: solid 0.05em;
+      border-color: $white;
+
+      .discountRange{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+      }
+      
+      img { 
+        width: 90%;
+      }
+    }
+    .balanceInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 12%;
+      border-bottom: solid 0.05em;
+      border-color: $white;
+    }
+
+    .btnInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 25%;
+      row-gap: 1em;
+      button {
+        width: 10em;
+        height: 3em;
+        background-color: $red;
+        border: none;
+        border-radius: 20px;
+        color: $white;
+      }
+    }
   }
 }

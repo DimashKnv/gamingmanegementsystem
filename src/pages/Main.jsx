@@ -1,7 +1,12 @@
 import { auth } from "../firebase";
+import minDisc from "../assets/minDIsc.png"
+import midDisc from "../assets/midDIsc.png"
+import maxDisc from "../assets/maxDisc.png"
 
 export function Main() {
   let user = auth.currentUser;
+  let discRate = [0,5,15];
+  let discount = discRate[1]
 
   return (
     <div className="mainPage">
@@ -32,40 +37,48 @@ export function Main() {
       <div className="rightside">
         <div className="userInfo">
           <h1>{user.displayName}</h1>
-          <p>Newbie</p>
+          <h3>Newbie</h3>
         </div>
         <div className="timeInfo">
           <div className="timeInfoRow">
             <div className="timeInfoRowPiece">
-              <p></p>
-              <h2></h2>
+              <p>Open Time:</p>
+              <h2>03:00</h2>
             </div>
             <div className="timeInfoRowPiece">
-              <p></p>
-              <h2></h2>
+              <p>Tariff:</p>
+              <h2>2+1</h2>
             </div>
           </div>
           <div className="timeInfoRow">
+            
             <div className="timeInfoRowPiece">
-              <p></p>
-              <h2></h2>
+              <p>All Time:</p>
+              <h2>10:00</h2>
             </div>
             <div className="timeInfoRowPiece">
-              <p></p>
-              <h2></h2>
+              <p>Price p/h:</p>
+              <h2>500 tg/h</h2>
             </div>
           </div>
         </div>
         <div className="discountInfo">
-            <input type="range" />
+          <p>Discount:</p>
+          <div className="discountRange">
+          {discRate.map((e)=>{
+            return <h3>{e}%</h3>
+          })}
+          </div>
+         
+         <img src={discount==0?minDisc:discount==5?midDisc:maxDisc} alt="" />
         </div>
         <div className="balanceInfo">
-            <p></p>
-            <h2></h2>
+          <p>Balance:</p>
+          <h2>10000tg</h2>
         </div>
         <div className="btnInfo">
-            <button>Refill</button>
-            <button>LOGOUT</button>
+          <button>REFILL</button>
+          <button>LOGOUT</button>
         </div>
       </div>
     </div>
