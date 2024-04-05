@@ -3,6 +3,7 @@ $black: #0c0b0b;
 $gray: #222121;
 $white: #ffffff;
 $graytxt: #807575;
+$darkgray:#161617;
 
 
 * {
@@ -85,13 +86,37 @@ input {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    width: 75vw;
+    width: 80vw;
     height: 100vh;
 
+    nav{
+      display: flex;
+      column-gap: 2em;
+      padding: 1em 0 0 1em;
+
+      img{
+        height: 3em;
+      }
+      ul{
+        display: flex;
+        column-gap: 4em;
+        align-items: center;
+        list-style: none;
+      }
+      img:hover{
+        filter:drop-shadow(0px 0px 15px $white);
+        cursor: pointer;
+      }
+    }
+    
+
+
+
     .tarif {
-      background-color: $gray;
+      background-color: $darkgray;
       display: flex;
       flex-direction: column;
+      row-gap: 1em;
 
       justify-content: center;
       align-items: center;
@@ -99,21 +124,33 @@ input {
       width: 60vw;
       margin-left: 7vw;
       margin-top: 5vh;
+      padding-top: 1.5em;
+      padding-bottom: 3em;
 
       .tarifPiece {
         display: flex;
         flex-direction: row;
-        column-gap: 5vw;
         justify-content: space-between;
         align-items: center;
-        width: 35%;
+        width: 60%;
 
         button {
-          background-color: $graytxt;
-          border-radius: 20px;
-          width: 8vw;
-          height: 4vh;
+          background-color: $gray;
+          color: $white;
+          font-size:1.2em;
+        
+
+          border: none;
+          border-radius: 10px;
+          min-height: 100%;
+          min-width: 45%;
+          // width: 10vw;
+          // height: 4vh;
+          padding: 0em 1.5em;
         }
+      }
+      button:hover{
+        background-color: $red;
       }
     }
     .ads {

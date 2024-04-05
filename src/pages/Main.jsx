@@ -1,38 +1,25 @@
 import { auth } from "../firebase";
-import minDisc from "../assets/minDIsc.png"
-import midDisc from "../assets/midDIsc.png"
-import maxDisc from "../assets/maxDisc.png"
+import minDisc from "../assets/minDIsc.png";
+import midDisc from "../assets/midDIsc.png";
+import maxDisc from "../assets/maxDisc.png";
+import { NavComp } from "../components/NavComponent";
+import { Tarif } from "../components/Tarif";
+import { LoginAcc } from "./Login";
+import { FinalPage } from "../components/FinalPage";
+import { useState } from "react";
 
 export function Main() {
   let user = auth.currentUser;
-  let discRate = [0,5,15];
-  let discount = discRate[1]
+  let discRate = [0, 5, 15];
+  let discount = discRate[1];
+
+  let [activeEl, setActiveEl] = useState('tarif');
 
   return (
     <div className="mainPage">
       <div className="leftside">
-        <div className="tarif">
-          <h1>Tarif</h1>
-          <div className="tarifPiece">
-            <h1>1h</h1>
-            <button>500tg</button>
-          </div>
-          <div className="tarifPiece">
-            <h1>2+1h</h1>
-            <button>1000tg</button>
-          </div>
-          <div className="tarifPiece">
-            <h1>5h</h1>
-            <button>2000tg</button>
-          </div>
-          <div className="tarifPiece">
-            <h1>Night</h1>
-            <button>5000tg</button>
-          </div>
-        </div>
-        <div className="ads">
-          <h1>Ad place</h1>
-        </div>
+        <NavComp activeEl={activeEl} setter={setActiveEl}></NavComp>
+        {activeEl == "tarif" ? <Tarif></Tarif> : <FinalPage></FinalPage>}
       </div>
       <div className="rightside">
         <div className="userInfo">
@@ -51,7 +38,6 @@ export function Main() {
             </div>
           </div>
           <div className="timeInfoRow">
-            
             <div className="timeInfoRowPiece">
               <p>All Time:</p>
               <h2>10:00</h2>
@@ -65,12 +51,15 @@ export function Main() {
         <div className="discountInfo">
           <p>Discount:</p>
           <div className="discountRange">
-          {discRate.map((e)=>{
-            return <h3>{e}%</h3>
-          })}
+            {discRate.map((e) => {
+              return <h3>{e}%</h3>;
+            })}
           </div>
-         
-         <img src={discount==0?minDisc:discount==5?midDisc:maxDisc} alt="" />
+
+          <img
+            src={discount == 0 ? minDisc : discount == 5 ? midDisc : maxDisc}
+            alt=""
+          />
         </div>
         <div className="balanceInfo">
           <p>Balance:</p>
