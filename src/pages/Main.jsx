@@ -7,19 +7,29 @@ import { Tarif } from "../components/Tarif";
 import { LoginAcc } from "./Login";
 import { FinalPage } from "../components/FinalPage";
 import { useState } from "react";
+import { MarketPage } from "../components/MarketPage";
+import { SettingsPage } from "../components/SettingsPage";
 
 export function Main() {
   let user = auth.currentUser;
   let discRate = [0, 5, 15];
   let discount = discRate[1];
 
-  let [activeEl, setActiveEl] = useState('tarif');
+  let [activeEl, setActiveEl] = useState("tarif");
 
   return (
     <div className="mainPage">
       <div className="leftside">
         <NavComp activeEl={activeEl} setter={setActiveEl}></NavComp>
-        {activeEl == "tarif" ? <Tarif></Tarif> : <FinalPage></FinalPage>}
+        {activeEl == "tarif" ? (
+          <Tarif></Tarif>
+        ) : activeEl == "market" ? (
+          <MarketPage></MarketPage>
+        ) : activeEl == "settings" ? (
+          <SettingsPage></SettingsPage>
+        ) : (
+          <FinalPage></FinalPage>
+        )}
       </div>
       <div className="rightside">
         <div className="userInfo">

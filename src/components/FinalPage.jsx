@@ -1,3 +1,4 @@
-export function FinalPage(){
-    return <div>FInal</div>
+export function FinalPage() {
+  return <div>FInal</div>;
 }
+
