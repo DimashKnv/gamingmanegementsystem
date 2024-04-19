@@ -53,24 +53,7 @@ export function FinalPage() {
       <CardApp></CardApp>
       <CardApp></CardApp>
       <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
-      <CardApp></CardApp>
+    
     </div>
   </div>;
 }

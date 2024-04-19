@@ -86,7 +86,7 @@ input {
     flex-direction: column;
     row-gap: 20px;
     width: 80vw;
-    // height: 100vh;
+    min-height: 100vh;
 
     nav {
       display: flex;
@@ -192,16 +192,19 @@ input {
         display: flex;
         flex-wrap: wrap;
         column-gap: 1em;
-        // overflow: scroll;
-        // overflow-y: auto;
+        row-gap: 1em;
       }
     }
 
     .cardApp {
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       img {
         width: 100%;
         height: 100%;
+        transition: all 1s;
       }
       .activeEl {
         display: none;
@@ -209,14 +212,68 @@ input {
         background-color: rgba($color: $black, $alpha: 0.8);
         bottom: 0;
         width: 100%;
+
         justify-content: center;
         column-gap: 1em;
+
+        h2,
+        h3:hover {
+          cursor: pointer;
+        }
+      }
+
+      .launch_game {
+        display: none;
+        position: absolute;
+        left: 10%;
+        top: 25%;
+
+        width: 9.375em;
+        height: 9.375em;
       }
     }
     .cardApp:hover {
+      .cardApp-bgimg {
+        opacity: 0.5;
+      }
       .activeEl {
         display: flex;
       }
+      .counterBox {
+        display: flex;
+      }
+      .counter_image {
+        opacity: 1;
+      }
+      .launch_game {
+        display: flex;
+      }
+    }
+    .active {
+      display: flex;
+    }
+    .nonactive {
+      display: none;
+
+    }
+    //MARKET - counter
+    .counterBox {
+      position: absolute;
+      align-items: center;
+
+      top: 0;
+      right: 0;
+
+      img {
+        width: 1em;
+        height: 1em;
+      }
+      img:hover {
+        cursor: pointer;
+      }
+    }
+    .counter_image {
+      opacity: 0;
     }
   }
 
@@ -229,7 +286,6 @@ input {
 
     align-items: center;
     z-index: 3;
-
 
     // position: absolute;
     right: 0%;
