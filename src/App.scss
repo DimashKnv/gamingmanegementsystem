@@ -173,12 +173,14 @@ input {
       display: flex;
       padding: 5em 2.5em;
       column-gap: 2em;
+      // opacity: 0.1;
 
       ul {
         list-style: none;
         display: flex;
         flex-direction: column;
         row-gap: 1em;
+        position: fixed;
         li {
           transition: color 0.5s ease-in-out;
         }
@@ -193,6 +195,18 @@ input {
         flex-wrap: wrap;
         column-gap: 1em;
         row-gap: 1em;
+        margin-left: 10em;
+      }
+
+      .cart_comp-nonActive{
+        display: none;
+      }
+      .cart_comp-active{
+        // display: none;
+        display: block;
+        position: absolute;
+        left: 10em;
+        top: 10em;
       }
     }
 
@@ -376,12 +390,19 @@ input {
       height: 25%;
       row-gap: 1em;
       button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         width: 10em;
         height: 3em;
         background-color: $red;
         border: none;
         border-radius: 20px;
         color: $white;
+      }
+      img{
+        width: 2.5em;
+        height: 2.5em;
       }
     }
   }

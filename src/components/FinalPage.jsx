@@ -1,7 +1,7 @@
 import { CardApp } from "./CardApp";
 
 export function FinalPage() {
-  return <div className="finalPage">
+  return <div >
     <ul>
       <li>ALL</li>
       <li>RECENT</li>

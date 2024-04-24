@@ -9,6 +9,8 @@ import { FinalPage } from "../components/FinalPage";
 import { useState } from "react";
 import { MarketPage } from "../components/MarketPage";
 import { SettingsPage } from "../components/SettingsPage";
+import cartImage from "../assets/cartimage.png";
+import { CartComponent } from "../components/CartComponent";
 
 export function Main() {
   let user = auth.currentUser;
@@ -16,20 +18,24 @@ export function Main() {
   let discount = discRate[1];
 
   let [activeEl, setActiveEl] = useState("tarif");
+  let [activeCart, setActiveCart] = useState(false);
 
   return (
     <div className="mainPage">
       <div className="leftside">
         <NavComp activeEl={activeEl} setter={setActiveEl}></NavComp>
-        {activeEl == "tarif" ? (
-          <Tarif></Tarif>
-        ) : activeEl == "market" ? (
-          <MarketPage></MarketPage>
-        ) : activeEl == "settings" ? (
-          <SettingsPage></SettingsPage>
-        ) : (
-          <FinalPage></FinalPage>
-        )}
+        <div className="finalPage">
+          <CartComponent activeCart={activeCart} setterCart={setActiveCart}></CartComponent>
+          {activeEl == "tarif" ? (
+            <Tarif></Tarif>
+          ) : activeEl == "market" ? (
+            <MarketPage></MarketPage>
+          ) : activeEl == "settings" ? (
+            <SettingsPage></SettingsPage>
+          ) : (
+            <FinalPage></FinalPage>
+          )}
+        </div>
       </div>
       <div className="rightside">
         <div className="userInfo">
@@ -76,7 +82,15 @@ export function Main() {
           <h2>10000tg</h2>
         </div>
         <div className="btnInfo">
-          <button>REFILL</button>
+          <button
+            onClick={() => {
+              setActiveCart(activeCart == false ? true : false);
+              // setActiveCart(!activeCart);
+             
+            }}
+          >
+            CART <img src={cartImage} alt="" />
+          </button>
           <button>LOGOUT</button>
         </div>
       </div>
