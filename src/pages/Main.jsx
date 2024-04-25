@@ -25,7 +25,10 @@ export function Main() {
       <div className="leftside">
         <NavComp activeEl={activeEl} setter={setActiveEl}></NavComp>
         <div className="finalPage">
-          <CartComponent activeCart={activeCart} setterCart={setActiveCart}></CartComponent>
+          <CartComponent
+            activeCart={activeCart}
+            setterCart={setActiveCart}
+          ></CartComponent>
           {activeEl == "tarif" ? (
             <Tarif></Tarif>
           ) : activeEl == "market" ? (
@@ -86,7 +89,6 @@ export function Main() {
             onClick={() => {
               setActiveCart(activeCart == false ? true : false);
               // setActiveCart(!activeCart);
-             
             }}
           >
             CART <img src={cartImage} alt="" />

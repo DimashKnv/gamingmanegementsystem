@@ -1,3 +1,3 @@
-export function SettingsPage(){
-    return <h1>SettingsPage</h1>
+export function SettingsPage() {
+  return <div className="main_cont">SettingsPage</div>;
 }
