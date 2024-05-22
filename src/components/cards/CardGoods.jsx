@@ -1,6 +1,6 @@
-import redbullPng from "../assets/drinkImg.png";
-import plusBtn from "../assets/plusBtn.png";
-import minusBtn from "../assets/minusBtn.png";
+import redbullPng from "../../assets/drinkImg.png";
+import plusBtn from "../../assets/plusBtn.png";
+import minusBtn from "../../assets/minusBtn.png";
 import { useState } from "react";
 export function CardGoods() {
   let [count, setCount] = useState(0);

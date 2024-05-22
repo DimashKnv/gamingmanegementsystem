@@ -3,7 +3,6 @@ import "./App.scss";
 import { LoginAcc } from "./pages/Login";
 import { RegistrAcc } from "./pages/Registr";
 import { Main } from "./pages/Main";
-import { Tarif } from "./components/Tarif";
 
 function App() {
   return (

@@ -2,15 +2,16 @@ import { auth } from "../firebase";
 import minDisc from "../assets/minDIsc.png";
 import midDisc from "../assets/midDIsc.png";
 import maxDisc from "../assets/maxDisc.png";
-import { NavComp } from "../components/NavComponent";
-import { Tarif } from "../components/Tarif";
+import { NavComp } from "../components/leftSideComponents/NavComponent";
+import { Tarif } from "../components/leftSideComponents/Tarif";
 import { LoginAcc } from "./Login";
-import { FinalPage } from "../components/FinalPage";
+import { FinalPage } from "../components/leftSideComponents/FinalPage";
 import { useState } from "react";
-import { MarketPage } from "../components/MarketPage";
-import { SettingsPage } from "../components/SettingsPage";
+import { MarketPage } from "../components/leftSideComponents/MarketPage";
+import { SettingsPage } from "../components/leftSideComponents/SettingsPage";
 import cartImage from "../assets/cartimage.png";
-import { CartComponent } from "../components/CartComponent";
+import { CartComponent } from "../components/leftSideComponents/CartComponent";
+import { TimeInfoRowPiece } from "../components/rightSideComponents/TimeInfoRowPiece";
 
 export function Main() {
   let user = auth.currentUser;
@@ -47,24 +48,24 @@ export function Main() {
         </div>
         <div className="timeInfo">
           <div className="timeInfoRow">
-            <div className="timeInfoRowPiece">
-              <p>Open Time:</p>
-              <h2>03:00</h2>
-            </div>
-            <div className="timeInfoRowPiece">
-              <p>Tariff:</p>
-              <h2>2+1</h2>
-            </div>
+            <TimeInfoRowPiece
+              title={"Open Time:"}
+              subtitle={"03:00"}
+            ></TimeInfoRowPiece>
+            <TimeInfoRowPiece
+              title={"Tariff:"}
+              subtitle={"2+1"}
+            ></TimeInfoRowPiece>
           </div>
           <div className="timeInfoRow">
-            <div className="timeInfoRowPiece">
-              <p>All Time:</p>
-              <h2>10:00</h2>
-            </div>
-            <div className="timeInfoRowPiece">
-              <p>Price p/h:</p>
-              <h2>500 tg/h</h2>
-            </div>
+            <TimeInfoRowPiece
+              title={"All Time:"}
+              subtitle={"10:00"}
+            ></TimeInfoRowPiece>
+            <TimeInfoRowPiece
+              title={"Price p/h:"}
+              subtitle={"500 tg/h"}
+            ></TimeInfoRowPiece>
           </div>
         </div>
         <div className="discountInfo">
@@ -74,7 +75,6 @@ export function Main() {
               return <h3>{e}%</h3>;
             })}
           </div>
-
           <img
             src={discount == 0 ? minDisc : discount == 5 ? midDisc : maxDisc}
             alt=""
@@ -87,8 +87,7 @@ export function Main() {
         <div className="btnInfo">
           <button
             onClick={() => {
-              setActiveCart(activeCart == false ? true : false);
-              // setActiveCart(!activeCart);
+              setActiveCart(true);
             }}
           >
             CART <img src={cartImage} alt="" />

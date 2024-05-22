@@ -1,4 +1,6 @@
-import redbullPng from "../assets/drinkImg.png";
+import redbullPng from "../../assets/drinkImg.png";
+import deletePng from "../../assets/cartdeletebtn.png"
+import closePng from "../../assets/closePng.png"
 
 export function CartComponent({ activeCart, setterCart }) {
   let goodsArray = [
@@ -6,11 +8,6 @@ export function CartComponent({ activeCart, setterCart }) {
     { name: "Burger", price: 2, quantity: 1 },
     { name: "Snickers", price: 7, quantity: 3 },
   ];
-
-  //   let obj = goodsArray[0].price*goodsArray[0].quantity
-  //   let ob1 = goodsArray[1].price*goodsArray[1].quantity
-  //   let ob2 = goodsArray[2].price*goodsArray[2].quantity
-
   let total = 0;
   goodsArray.map((e) => {
     total += e.price * e.quantity;
@@ -22,8 +19,8 @@ export function CartComponent({ activeCart, setterCart }) {
         activeCart == false ? "cart_comp-nonActive" : "cart_comp-active"
       }
     >
-      CartComponent
-      <div>
+      <div className="cart_block">
+        <img src={closePng} alt="" className="closeBtn" onClick={()=>{setterCart(false)}}/>
         <ul>
           {goodsArray.map((e) => {
             return (
@@ -32,15 +29,14 @@ export function CartComponent({ activeCart, setterCart }) {
                   <img src={redbullPng}></img>
                   <p>{e.name}</p>
                 </div>
-
                 <p>{e.quantity}pcs</p>
-
                 <p>{e.price}$</p>
+                <img src={deletePng} alt="" className="deletePng"/>
               </li>
             );
           })}
         </ul>
-        <h2>Totall:{total}</h2>
+        <h2>Totall: {total} $</h2>
         <button>BUY</button>
       </div>
     </div>

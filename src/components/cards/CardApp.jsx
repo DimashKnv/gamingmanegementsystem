@@ -1,5 +1,5 @@
-import launchImage from "../assets/play_circle_outline.png";
-import gameImage from "../assets/gameImage.png";
+import launchImage from "../../assets/play_circle_outline.png";
+import gameImage from "../../assets/gameImage.png";
 
 export function CardApp() {
   return (

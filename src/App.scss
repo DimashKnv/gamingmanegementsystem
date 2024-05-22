@@ -208,12 +208,37 @@ input {
         display: flex;
         justify-content: center;
         align-items: center;
-        position: absolute;
+
         z-index: 1;
-        background-color: rgba($color: #00000071, $alpha: 0.8);
+        background-color: rgba($color: #17171750, $alpha: 0.8);
+
+        position: fixed;
 
         width: 80vw;
         height: 100vh;
+        .cart_block {
+          background-color: $black;
+          border-radius: 25px;
+          padding: 3vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 2vw;
+          width: 40vw;
+          position: relative;
+
+          h2 {
+            border-bottom: solid 0.05em;
+            border-color: $white;
+            width: 10vw;
+          }
+          .closeBtn{
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            cursor: pointer;
+          }
+        }
         button {
           padding: 1em 6em;
           display: flex;
@@ -228,7 +253,16 @@ input {
           cursor: pointer;
         }
         ul {
-          width: 50%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 1vw;
+          li {
+            .deletePng {
+              width: 1vw;
+              height: 1vw;
+            }
+          }
         }
         .cartgoodspart {
           display: flex;
@@ -241,6 +275,7 @@ input {
             display: flex;
             column-gap: 1em;
             align-items: center;
+            width: 45vw;
           }
           img {
             width: 100px;
@@ -438,6 +473,7 @@ input {
         border: none;
         border-radius: 20px;
         color: $white;
+        cursor: pointer;
       }
       img {
         width: 2.5em;

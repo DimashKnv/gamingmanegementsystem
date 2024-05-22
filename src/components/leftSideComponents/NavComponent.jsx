@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/loggo.png";
+import logo from "../../assets/loggo.png";
 import { useState } from "react";
 export function NavComp({ activeEl, setter }) {
   let [isClicked, setIsClicked] = useState("logo");

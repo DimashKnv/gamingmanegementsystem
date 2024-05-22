@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AccLogin } from "../components/AccLogin";
-import { CodeLogin } from "../components/CodeLogin";
+import { AccLogin } from "../components/logins/AccLogin";
+import { CodeLogin } from "../components/logins/CodeLogin";
 import LoginPng from "../assets/LogPage.png"
 
 export function LoginAcc() {
