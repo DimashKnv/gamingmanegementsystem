@@ -1,22 +1,22 @@
 import redbullPng from "../../assets/drinkImg.png";
 import plusBtn from "../../assets/plusBtn.png";
 import minusBtn from "../../assets/minusBtn.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCart } from "../../store/reducers";
+import { addCart, deleteCart, minusCart } from "../../store/reducers";
 export function CardGoods({ object }) {
   let [count, setCount] = useState(0);
+  let [num, setNum] = useState(0);
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
   let countObj = {};
-  let count1 = 10;
-  function asda() {
+
+  useEffect(() => {
     countObj = cartState.cart.find((e) => {
       return e.id == object.id;
     });
-    console.log(countObj.count);
-    count1 = countObj.count;
-  }
+    setCount(countObj == undefined ? 0 : countObj.count);
+  }, [num]);
 
   return (
     <div className="cardApp">
@@ -27,20 +27,24 @@ export function CardGoods({ object }) {
           src={minusBtn}
           alt="minus"
           onClick={() => {
-            // count > 0 ? setCount((count -= 1)) : setCount(0);
-            asda();
+            if (count > 0) {
+              if (count > 1) {
+                dispatch(minusCart(object));
+              } else {
+                dispatch(deleteCart(object));
+              }
+              setNum((num -= 1));
+            }
           }}
         />
-        <h2>{count1}</h2>
-        {/* <h2>{count}</h2> */}
+        <h2>{count}</h2>
         <img
           className="counter_image"
           src={plusBtn}
           alt="plus"
           onClick={() => {
             dispatch(addCart(object));
-            console.log(cartState);
-            // setCount((count += 1));
+            setNum((num += 1));
           }}
         />
       </div>

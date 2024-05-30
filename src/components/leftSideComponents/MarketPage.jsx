@@ -2,10 +2,10 @@ import { CardGoods } from "../cards/CardGoods";
 
 export function MarketPage() {
   let productsArray = [
-    { name: "Red Bull", price: 2, id: 0, count: 1 },
-    { name: "Burger", price: 4, id: 1, count: 1 },
-    { name: "Snickers", price: 5, id: 2, count: 1 },
-    { name: "Sandwich", price: 6, id: 3, count: 1 }
+    { name: "Red Bull", price: 2, id: 0, count: 0 },
+    { name: "Burger", price: 4, id: 1, count: 0 },
+    { name: "Snickers", price: 5, id: 2, count: 0 },
+    { name: "Sandwich", price: 6, id: 3, count: 0}
   ];
   let arr = [];
   let i = 0;

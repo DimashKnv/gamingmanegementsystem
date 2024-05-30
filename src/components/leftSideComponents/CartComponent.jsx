@@ -1,18 +1,19 @@
 import redbullPng from "../../assets/drinkImg.png";
-import deletePng from "../../assets/cartdeletebtn.png"
-import closePng from "../../assets/closePng.png"
+import deletePng from "../../assets/cartdeletebtn.png";
+import closePng from "../../assets/closePng.png";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart } from "../../store/reducers";
 
 export function CartComponent({ activeCart, setterCart }) {
-  let goodsArray = [
-    { name: "RedBull", price: 5, quantity: 2 },
-    { name: "Burger", price: 2, quantity: 1 },
-    { name: "Snickers", price: 7, quantity: 3 },
-  ];
-  let total = 0;
-  goodsArray.map((e) => {
-    total += e.price * e.quantity;
+  let dispatch=useDispatch();
+  const cartState = useSelector((state) => {
+    return state.cartReducer;
   });
-
+  let total = 0;
+  cartState.cart.map((e) => {
+    let mult = e.price * e.count;
+    total += mult;
+  });
   return (
     <div
       className={
@@ -20,18 +21,27 @@ export function CartComponent({ activeCart, setterCart }) {
       }
     >
       <div className="cart_block">
-        <img src={closePng} alt="" className="closeBtn" onClick={()=>{setterCart(false)}}/>
+        <img
+          src={closePng}
+          alt=""
+          className="closeBtn"
+          onClick={() => {
+            setterCart(false);
+          }}
+        />
         <ul>
-          {goodsArray.map((e) => {
+          {cartState.cart.map((e) => {
             return (
               <li className="cartgoodspart">
                 <div>
                   <img src={redbullPng}></img>
                   <p>{e.name}</p>
                 </div>
-                <p>{e.quantity}pcs</p>
-                <p>{e.price}$</p>
-                <img src={deletePng} alt="" className="deletePng"/>
+                <p>{e.count} pcs</p>
+                <p>{e.price} $</p>
+                <img src={deletePng} alt="" className="deletePng" onClick={()=>{
+                  dispatch(deleteCart(e))
+                }}/>
               </li>
             );
           })}
