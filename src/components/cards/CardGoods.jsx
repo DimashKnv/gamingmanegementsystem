@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, deleteCart, minusCart } from "../../store/reducers";
 export function CardGoods({ object }) {
-  let [count, setCount] = useState(0);
-  let [num, setNum] = useState(0);
+  let [count, setCount] = useState(10);
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
   let countObj = {};
@@ -16,7 +15,7 @@ export function CardGoods({ object }) {
       return e.id == object.id;
     });
     setCount(countObj == undefined ? 0 : countObj.count);
-  }, [num]);
+  }, [cartState]);
 
   return (
     <div className="cardApp">
@@ -33,7 +32,6 @@ export function CardGoods({ object }) {
               } else {
                 dispatch(deleteCart(object));
               }
-              setNum((num -= 1));
             }
           }}
         />
@@ -44,7 +42,7 @@ export function CardGoods({ object }) {
           alt="plus"
           onClick={() => {
             dispatch(addCart(object));
-            setNum((num += 1));
+            console.log(count)
           }}
         />
       </div>

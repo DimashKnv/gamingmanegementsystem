@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCart } from "../../store/reducers";
 
 export function CartComponent({ activeCart, setterCart }) {
-  let dispatch=useDispatch();
+  let dispatch = useDispatch();
   const cartState = useSelector((state) => {
     return state.cartReducer;
   });
@@ -30,21 +30,32 @@ export function CartComponent({ activeCart, setterCart }) {
           }}
         />
         <ul>
-          {cartState.cart.map((e) => {
-            return (
-              <li className="cartgoodspart">
-                <div>
-                  <img src={redbullPng}></img>
-                  <p>{e.name}</p>
-                </div>
-                <p>{e.count} pcs</p>
-                <p>{e.price} $</p>
-                <img src={deletePng} alt="" className="deletePng" onClick={()=>{
-                  dispatch(deleteCart(e))
-                }}/>
-              </li>
-            );
-          })}
+          {cartState.cart[0] == undefined ? (
+            <h1>No goods</h1>
+          ) : (
+            cartState.cart.map((e) => {
+              if (e.count > 0) {
+                return (
+                  <li className="cartgoodspart">
+                    <div>
+                      <img src={redbullPng}></img>
+                      <p>{e.name}</p>
+                    </div>
+                    <p>{e.count} pcs</p>
+                    <p>{e.price} $</p>
+                    <img
+                      src={deletePng}
+                      alt=""
+                      className="deletePng"
+                      onClick={() => {
+                        dispatch(deleteCart(e));
+                      }}
+                    />
+                  </li>
+                );
+              }
+            })
+          )}
         </ul>
         <h2>Totall: {total} $</h2>
         <button>BUY</button>
